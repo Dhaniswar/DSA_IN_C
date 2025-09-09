@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  # Operation on Array in Data Structure
@@ -12,7 +13,7 @@
 
  4. Searching
 
- 5. Storing
+ 5. Sorting
 
  **/
 
@@ -115,15 +116,16 @@ void main() {
 void main()
 {
 
-    int a[50], size, i, num, pos;
+    int a[50], size, i, num, pos, item;
 
     printf("Enter the size of array: \n");
 
     scanf("%d", &size);
 
-    if (size > 50)
+    if (size >= 50)
     {
-        printf("Stack overflow array size sholud be less that %d: \n", size);
+        printf("Stack overflow array size sholud be less that: 50\n");
+        exit(1);
     }
 
     printf("Enter the element of array: \n");
@@ -149,6 +151,7 @@ void main()
     else
     {
 
+        item = a[pos-1]
         for (i = pos - 1; i < size - 1; i++)
         {
             a[i] = a[i + 1];
@@ -162,5 +165,28 @@ void main()
 
             printf("At index= %d the array element is: %d\n", i, a[i]);
         }
+
+         printf("And the deleted element from array is:  %d\n", item);
     }
+
+    /*
+    Note: if you want to delete lement from first index of array, it is very simle 
+    => hust change in the for loop 
+    for(i=0; i<size-1; i++) {
+
+        a[i] = a[i+1];
+    
+    }
+    size --;
+    
+    Note: If you want to delete from end of the arry, just do 
+
+    size -- 
+
+
+    1. Time complexity O(n-p)
+    */
+
+
+
 }
