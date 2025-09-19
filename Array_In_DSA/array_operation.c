@@ -149,9 +149,10 @@ void main()
     }
 
     else
+
     {
 
-        item = a[pos-1]
+        item = a[pos-1];
         for (i = pos - 1; i < size - 1; i++)
         {
             a[i] = a[i + 1];
