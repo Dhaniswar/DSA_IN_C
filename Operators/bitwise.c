@@ -15,7 +15,7 @@
 &  => bitwise AND
 |  => bitwise OR
 ^  => bitwise XOR
-~  => bitwise NOT
+~  => bitwise NOT (it is also known as one's complement)
 <<  => bitwise left shit
 >>  => bitwise right shift
 
