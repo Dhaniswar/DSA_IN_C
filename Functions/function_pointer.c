@@ -5,7 +5,7 @@ Function Pointer
 
 syntax:
 
-return_type_of_fun (*pointer_namr)(int, int);
+return_type_of_fun (*pointer_name)(int, int);
 
 int sum(int a, int b){
 
