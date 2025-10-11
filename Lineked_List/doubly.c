@@ -11,7 +11,7 @@
 
 => And the address of the first node is store in the pointer/head pointer/ start pointer
 
-=> And Address part of pirst and last node contain Null value
+=> And Address part of first and last node contain Null value
 
 => forward and backward traversal are possible in this list
 
