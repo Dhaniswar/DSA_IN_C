@@ -12,7 +12,7 @@ struct node
 struct node *create_linked_list()
 {
 
-    struct node *head, *newnode, *temp;
+    struct node *head=NULL, *newnode, *temp=NULL;
 
     char choice[10];
 
@@ -49,28 +49,36 @@ struct node *create_linked_list()
 
 
 
-struct node *delete_at_beginning(struct node *head)
+struct node *delete_from_end(struct node *head)
 {
 
-    struct node *temp;
+    struct node *temp, *second_last;
 
-    if (head == 0)
+    if (head == NULL)
     {
-        printf("List is empty! Nothing to delete.\n");
+        printf("List is empty! .\n");
         return NULL;
     }
 
-    else
-    {
-
-        temp = head;
-        head = head->next;
-        printf("Successfully deleted node from the beginning\n");
-
-        free(temp);
-
-        return head;
+    if(head->next == NULL){
+        printf("Deleted node with data: %d (only node)\n", head->data);
+        free(head);
+        return NULL;
     }
+
+  
+    temp = head;
+
+    while(temp->next !=0){
+            second_last = temp;
+            temp = temp->next;
+    }
+    second_last->next = NULL;
+    printf("Successfully deleted node from the End\n");
+
+    free(temp);
+
+    return head;   
 }
 
 
@@ -88,7 +96,7 @@ void display_list(struct node *head)
 
     temp = head;
 
-    while (temp != 0)
+    while (temp != NULL)
     {
         printf("data==%d, and next=%p\n", temp->data, temp->next);
         temp = temp->next;
@@ -121,7 +129,7 @@ int main()
     printf("Original list: \n");
     display_list(head);
 
-    head = delete_at_beginning(head);
+    head = delete_from_end(head);
 
     printf("List after deletion: \n");
     display_list(head);
