@@ -151,6 +151,29 @@ void free_list(struct node *head)
     }
 }
 
+int get_lenght(struct node *head){
+
+    struct node *temp;
+    int length =0;
+
+    if(head==NULL){
+        printf("List is empty: \n");
+        return;
+    }
+
+    else{
+        temp=head;
+
+        while(temp!=NULL){
+            length++;
+            temp = temp->next;
+        }
+
+        printf("Length of the given linked list is: %d\n", length);
+    }
+
+}
+
 
 int main()
 {
@@ -168,6 +191,9 @@ int main()
 
     printf("List after deletion: \n");
     display_list(head);
+
+    int len = get_length(head);
+    printf("Length of the linked list is: %d\n", len);
 
     free_list(head);
 
