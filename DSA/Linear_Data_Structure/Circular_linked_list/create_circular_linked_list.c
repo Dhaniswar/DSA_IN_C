@@ -1,13 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*
 Creating the Circular linked list
 
 Insert a node after given position in the Circular linlked list
 */
+
+/*
 
 struct node {
 
@@ -51,7 +52,7 @@ struct node *create_Circular_linked_list(struct node *head, struct node **tail){
         printf("Do you want to continue? (yes/no): ");
         scanf("%s", choice);
         count++;
-        
+
      } while(strcmp(choice, "yes") == 0 || strcmp(choice, "Yes") == 0 );
 
      return head;
@@ -126,3 +127,99 @@ int main() {
 
 
 
+
+
+
+*/
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+
+void display_circular_list(struct node *head){
+    struct node *current;
+
+    current = head;
+
+    while(current->next !=head){
+        printf("Data=%d, and Next=%p\n",current->data, current->next);
+        current= current->next;
+    }
+    printf("Data=%d, and Next=%p\n",current->data, current->next);
+    printf("Verify circular linked list Data=%d\n",current->next->data);
+
+
+}
+
+void free_list(struct node *head){
+
+    struct node *current;
+    struct node *to_free;
+
+    current = head;
+
+    while(current->next !=head){
+        current= current->next;
+    }
+    current->next= NULL;
+
+    current = head;
+    while(current !=NULL){
+        to_free = current;
+        current = current->next;
+        free(to_free);
+    }
+
+}
+
+
+int main()
+{
+
+    struct node *head = NULL, *current = NULL, *newnode = NULL;
+
+    char choice[10];
+
+        do
+    {
+
+        newnode = (struct node *)malloc(sizeof(struct node));
+
+        if (newnode == NULL)
+        {
+            printf("Memory allocation failed");
+            return 0;
+        }
+        printf("Enter the data: \n");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+
+        if (head == NULL)
+        {
+            current = head = newnode;
+        }
+
+        else
+        {
+            current->next = newnode;
+            current = newnode;
+        }
+        current->next = head;
+
+        printf("Do you want to continue: (yes,no)\n");
+        scanf("%s", choice);
+
+    }while (strcmp(choice, "yes")== 0 || strcmp(choice, "Yes") == 0);
+
+
+    display_circular_list(head);
+    free_list(head);
+
+
+    head = NULL;
+
+    return 0;
+}
