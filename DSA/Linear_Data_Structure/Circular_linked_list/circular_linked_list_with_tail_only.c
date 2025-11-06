@@ -121,6 +121,53 @@ struct node *insert_at_the_end(struct node *tail){
 
 
 
+struct node *insert_at_any_given_pos(struct node *tail){
+    struct node *temp=NULL, *newnode, *previous;
+    int pos, i=1;
+
+    newnode = (struct node*)malloc(sizeof(struct node));
+
+    printf("Enter the position where do you want to insert: \n");
+    scanf("%d", &pos);
+ 
+    if(tail==NULL) {
+        printf("Empty list!\n");
+        return tail;
+    }
+    
+
+       if(newnode==NULL){
+        printf("Memory allocation failed!\n");
+        return tail;
+    } 
+    
+    if(pos>count || pos<1){
+        printf("Please enter the valid position from 1 to %d",count);
+        return tail;
+    }
+
+
+    else{
+        temp = tail->next;
+        while(i<pos){
+            previous = temp;
+            temp=temp->next;
+            i++;
+        }
+        printf("Insert the data at the %d position: \n", pos);
+        scanf("%d", &newnode->data); 
+
+        previous->next = newnode;
+        newnode->next = temp;
+
+        return tail;
+
+    }
+
+}
+
+
+
 
 
 
@@ -186,6 +233,11 @@ int main() {
 
     printf("Linked list after inserting at the end: \n");
     display_Circular_linked_list(tail);
+
+    tail = insert_at_any_given_pos(tail);
+    printf("Linked list after inserting in the given position: \n");
+    display_Circular_linked_list(tail);
+
 
 
 
