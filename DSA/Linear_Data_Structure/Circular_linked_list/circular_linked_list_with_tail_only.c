@@ -58,6 +58,35 @@ struct node *create_Circular_linked_list(struct node *tail){
 }
 
 
+struct node *insert_at_beginning(struct node *tail){
+    struct node *temp=NULL, *newnode;
+
+    newnode = (struct node*)malloc(sizeof(struct node));
+ 
+    if(tail==NULL) {
+        printf("Empty list!\n");
+        return tail;
+    }
+
+       if(newnode==NULL){
+        printf("Memory allocation failed!\n");
+        return tail;
+    }
+
+
+    else{
+        
+        printf("Insert the data at beginning: \n");
+        scanf("%d", &newnode->data);
+        newnode->next = tail->next;
+        tail->next = newnode;
+
+        return tail;
+
+    }
+
+}
+
 
 
 void display_Circular_linked_list(struct node *tail){
@@ -112,6 +141,12 @@ int main() {
 
     printf("Original linked list: \n");
     display_Circular_linked_list(tail);
+
+    tail = insert_at_beginning(tail);
+
+    printf("Linked list after inserting at the beginning: \n");
+    display_Circular_linked_list(tail);
+
 
 
     free_list(tail);
