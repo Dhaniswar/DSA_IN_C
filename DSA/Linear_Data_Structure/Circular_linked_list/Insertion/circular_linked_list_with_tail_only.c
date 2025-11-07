@@ -159,6 +159,21 @@ struct node *insert_at_any_given_pos(struct node *tail){
 
         previous->next = newnode;
         newnode->next = temp;
+        /*
+        OR
+
+        temp = tail->next;
+        while(i<pos-1){
+            temp=temp->next;
+            i++;
+        }
+        printf("Insert the data at the %d position: \n", pos);
+        scanf("%d", &newnode->data); 
+
+        newnode->next = temp->next;
+        temp->next = newnode;
+        
+        */
 
         return tail;
 
