@@ -127,25 +127,19 @@ struct node *delete_from_the_end(struct node *tail){
 
 
 
-struct node *insert_at_any_given_pos(struct node *tail){
-    struct node *temp=NULL, *newnode, *previous;
+struct node *delete_from_any_given_pos(struct node *tail){
+    struct node *temp=NULL, *current, *previous;
     int pos, i=1;
 
-    newnode = (struct node*)malloc(sizeof(struct node));
-
-    printf("Enter the position where do you want to insert: \n");
+    printf("Enter the position where do you want to delete: \n");
     scanf("%d", &pos);
+
+    current = tail->next;
  
     if(tail==NULL) {
         printf("Empty list!\n");
         return tail;
     }
-    
-
-       if(newnode==NULL){
-        printf("Memory allocation failed!\n");
-        return tail;
-    } 
     
     if(pos>count || pos<1){
         printf("Please enter the valid position from 1 to %d",count);
@@ -154,32 +148,17 @@ struct node *insert_at_any_given_pos(struct node *tail){
 
 
     else{
-        temp = tail->next;
         while(i<pos){
-            previous = temp;
-            temp=temp->next;
+            previous = current;
+            current=current->next;
             i++;
         }
-        printf("Insert the data at the %d position: \n", pos);
-        scanf("%d", &newnode->data); 
 
-        previous->next = newnode;
-        newnode->next = temp;
-        /*
-        OR
+        previous->next = current->next;
+        current->next = NULL;
+        free(current);
 
-        temp = tail->next;
-        while(i<pos-1){
-            temp=temp->next;
-            i++;
-        }
-        printf("Insert the data at the %d position: \n", pos);
-        scanf("%d", &newnode->data); 
-
-        newnode->next = temp->next;
-        temp->next = newnode;
-        
-        */
+        printf("Node Deleted Sucessfully from the given %d position!\n", pos);
 
         return tail;
 
@@ -250,9 +229,15 @@ int main() {
     // printf("Linked list after deleting from the beginning: \n");
     // display_Circular_linked_list(tail);
 
-    tail = delete_from_the_end(tail);
+    // tail = delete_from_the_end(tail);
 
-    printf("Linked list after deleting from the end: \n");
+    // printf("Linked list after deleting from the end: \n");
+    // display_Circular_linked_list(tail);
+
+
+    tail = delete_from_any_given_pos(tail);
+
+    printf("Linked list after deleting from given position: \n");
     display_Circular_linked_list(tail);
 
     free_list(tail);
