@@ -35,16 +35,18 @@ struct node *create_doubly_circular_linked_list(struct node *head, struct node *
 
     if(head==NULL){
         head=*tail=newnode;
-        newnode->next = newnode;
+        newnode->next = newnode->previous = newnode;
     }
 
     else{
         (*tail)->next = newnode;
         newnode->previous = *tail;
+        newnode->next = head;
+        head->previous = newnode;
         *tail = newnode;
     }
-    newnode->next = head;
-    head->previous = newnode;
+
+    
     printf("Do you want to continue? (yes/no): ");
     scanf("%s", choice);
     count++;
@@ -83,14 +85,21 @@ void display_doubly_circular_linked_list(struct node *head, struct node **tail){
 
 void free_list(struct node *head, struct node **tail) {
 
-    struct node *temp;
-
-
-    while(head != (*tail)->next){
-        temp=head;
-        head= head->next;
-        free(temp);
+    if(head==NULL){
+        return;
     }
+
+    struct node *temp, *current;
+
+    current = head;
+
+    do{
+        temp=current;
+        current=current->next;
+        free(temp);
+    }while(current !=head);
+
+    *tail = NULL;
 
 }
 
