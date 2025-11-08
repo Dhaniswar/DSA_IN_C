@@ -94,6 +94,42 @@ struct node *insert_at_the_beginning(struct node *head, struct node **tail){
 
 
 
+
+struct node *insert_at_the_end(struct node *head, struct node **tail){
+    struct node *newnode;
+
+    newnode=(struct node*)malloc(sizeof(struct node));
+    if(newnode==NULL){
+        printf("Memory allocation failed!\n");
+        return head;
+    }
+
+    printf("Insert data at the end: \n");
+    scanf("%d", &newnode->data);
+    newnode->previous = NULL;
+    newnode->next = NULL;
+
+    if(head==NULL){
+        head=*tail=newnode;
+        newnode->next = newnode->previous = newnode;
+    }
+
+    else{
+        newnode->previous = *tail;
+        newnode->next = head;
+        (*tail)->next = newnode;
+        head->previous = newnode;
+        *tail = newnode;
+    }
+
+  
+    return head;
+
+}
+
+
+
+
 void display_doubly_circular_linked_list(struct node *head, struct node **tail){
     struct node *temp;
 
@@ -150,12 +186,17 @@ int main(){
 
     head = create_doubly_circular_linked_list(head, &tail);
 
-    printf("Original linked list: \n");
+    printf("Original Doubly circular linked list: \n");
     display_doubly_circular_linked_list(head, &tail);
 
     head = insert_at_the_beginning(head, &tail);
 
-    printf("Linked list after inserting in the beginning: \n");
+    printf("Doubly circular Linked list after inserting in the beginning: \n");
+    display_doubly_circular_linked_list(head, &tail);
+
+    head = insert_at_the_end(head, &tail);
+
+    printf("Doubly circular Linked list after inserting in the end: \n");
     display_doubly_circular_linked_list(head, &tail);
 
     
