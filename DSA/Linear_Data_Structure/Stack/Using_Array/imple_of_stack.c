@@ -45,7 +45,7 @@ void pop() {
     else{
         data = stack[top];
         top--;
-        printf("Pop data from the stack is %d", data);
+        printf("Top most data in the stack is: %d", data);
     }
 }
 
@@ -65,7 +65,7 @@ void peak(){
 }
 
 
-void dispaly(){
+void display(){
     int i;
     
     if(top == -1){
@@ -73,9 +73,8 @@ void dispaly(){
     }
     else{
         printf("Displaying stack data from top to buttom!\n");
-        while(top != -1){
-            printf("%d\n", stack[top]);
-            top--;
+        for(i=top; i>=0; i--){
+            printf("%d\n", stack[i]);
         }
     }
 }
@@ -84,13 +83,27 @@ void dispaly(){
 
 int main(){
 
-    int stack[5];
-    int i;
-
-    for(i=0; i<N; i++){
-        push();
-    }
-    dispaly();
+    int ch;
+    do{
+        printf("Enter choice(1:Push, 2:Pop, 3:peek, 4: display)\n");
+        scanf("%d", &ch);
+        switch(ch){
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                peak();
+                break;
+            case 4:
+                display();
+                break;
+            default:
+            printf("Invalid choice\n");
+        }
+    }while(ch !=0);
 
 
     return 0;
