@@ -84,7 +84,17 @@ void display(struct stack *top){
 
 }
 
+void peek(struct stack *top){
 
+    if(top==NULL){
+        printf("Under Flow condition Occurs!\n");
+        return;
+    }
+
+    else{
+        printf("Top most element of the stack is: data=%d and next=%p\n", top->data, top->next);
+    }
+}
 
 
 
