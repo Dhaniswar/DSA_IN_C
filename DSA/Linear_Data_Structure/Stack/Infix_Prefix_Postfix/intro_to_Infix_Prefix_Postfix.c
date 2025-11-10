@@ -24,4 +24,10 @@ Q1) 1 + 2 * 5 + 30/5
 Q2) 2^2^3
  => 2^8
  => 256
+
+Note: 
+1. so parsing or processing of this infix operation is difficult
+2. In term of time and as well as in terms of memory consumption
+
+Conclusion=> So to address this problem we have 2 more expression Prefix and Postfix
 */
