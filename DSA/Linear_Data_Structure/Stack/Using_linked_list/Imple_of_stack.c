@@ -63,6 +63,28 @@ struct stack *push(struct stack *top){
 }
 
 
+void display(struct stack *top){
+
+    struct stack *temp=NULL;
+
+    temp=top;
+
+    if(top==NULL){
+        printf("Stack is empty!\n");
+        return;
+    }
+
+    else{
+        while(temp  != NULL){
+            printf("data=%d, next=%p \n", temp->data, temp->next);
+            temp = temp->next;
+        }
+    }
+    
+
+}
+
+
 
 
 
