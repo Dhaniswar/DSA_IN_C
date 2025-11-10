@@ -97,6 +97,29 @@ void peek(struct stack *top){
 }
 
 
+struct stack *pop(struct stack *top){
+
+    struct stack *temp;
+    temp=top;
+
+    if(top==NULL){
+        printf("Under Flow condition Occurs!\n");
+        return top;
+    }
+
+    else{
+
+        top = top->next;
+
+        printf("Sucessfully Pop the data from stack which is: data=%d and next=%p\n", temp->data, temp->next);
+        free(temp);
+
+        return top;
+    }
+}
+
+
+
 
 int main() {
 
@@ -108,6 +131,14 @@ int main() {
     display(top);
 
     peek(top);
+
+    top=pop(top);
+    peek(top);
+
+    printf("Displaying stack data after perferming pop operation: \n");
+    display(top);
+
+
 
 
 
