@@ -6,7 +6,7 @@
 Expression:
 Basically expression means it contains some constant, may be variable, or operands or operators or symbols
 eg(p+q, 4 - 2, a + 6)
-general form of biary expression is => <Operand> <Operator> <Operand> => and this form is known as Infix expression
+general form of biary Infix expression is => <Operand> <Operator> <Operand> => and this form is known as Infix expression
 
 #Precedence of expression and Associvity
 1.) () {} []  L-R
@@ -30,4 +30,22 @@ Note:
 2. In term of time and as well as in terms of memory consumption
 
 Conclusion=> So to address this problem we have 2 more expression Prefix and Postfix
+
+
+
+#Prefix(Polish) Expression:
+<opetator><operand><operand>
+
+eg, Infix expression 5 + 1 => to Prefix Expression + 5 1
+
+    a * b + c =>   * a b + c
+              => + * a b c
+
+
+#Postfix(Reverse Polish) Expression:
+<operand><operand><operator>
+
+5 + 1 => 5 1 +
+a * b + c => a b * + c
+          => a b * c +
 */
