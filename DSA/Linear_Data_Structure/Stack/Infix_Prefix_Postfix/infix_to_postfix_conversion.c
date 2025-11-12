@@ -26,4 +26,19 @@
 => R to L then push the incoming operator
 
 
+let do some examples, 
+Q1) A + B/C
+  
+Stack           Postfix Expression
+                    ABC/+
+                      
+
+
+
+Q2) A - B/C * D + E
+
+stack         Postfix Expression
+                   ABC/D*-E+
+
+
 */
