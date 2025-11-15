@@ -25,7 +25,7 @@
 
 => R to L then push the incoming operator
 
-
+ 
 let do some examples, 
 Q1) A + B/C
   
