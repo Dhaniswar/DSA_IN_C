@@ -46,8 +46,29 @@ where(a=2, b=3, c=4, d=16, e=2, f=3)
 
 Answer => 12
 
+Now same problem using stack, rules
+1. Start skimming prefix expression from R - L
+2. And if you found the operands just push that operands into the stack
+3. If you found operator just pop top 2 operands from the stack and perform operation according to that operatoer on that pop operands and push thae result to the stack
 
-Note: after converting to infix to prefix we subtitude the vaule of variables and we start to skim from L - R (for Potfix) 
+// ALgorithm to evaluation of Prefix using stack 
+
+step1: Scan prefix expression from right to left
+step1: for each character in prefix expression
+do
+   if operand is there, push it onto stack
+   else if operatoer is there, pop 2 elements
+      op1 = top element
+      op2 = next to top element
+      result = op1 operator op2
+
+    push result onto stack
+
+  return stack[top]
+
+
+
+
 
 
 

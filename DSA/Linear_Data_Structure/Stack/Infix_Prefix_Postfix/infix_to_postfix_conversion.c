@@ -41,4 +41,45 @@ stack         Postfix Expression
                    ABC/D*-E+
 
 
+
+Note: after converting to infix to prefix we subtitude the vaule of variables and we start to skim from L - R (for Potfix) 
+
+for example=> 
+a + b * c - d/e ^ f 
+where(a=2, b=3, c=4, d=16, e=2, f=3)
+a b c * + d e f ^ / - (First converted the infix to Ppstfix without using stack)
+2 3 4 * + 16 2 3 ^ / - (just instituting values)
+2 12 + 16 2 3 ^ / -  (4*3)=> skim from L- R and find first operator and apply that operator in first 2 operand(left side of first 2 operands from operators)
+14 16 2 3 ^ / -       (2 + 12)
+14 16 8 / -          (2^3)
+14 2-                (16/8)
+12                   (14-2)
+
+Answer => 12
+
+Now same problem using stack, rules
+1. Start skimming prefix expression from L - R
+2. And if you found the operands just push that operands into the stack
+3. If you found operator just pop top 2 operands from the stack and perform operation according to that operatoer on that pop operands and push thae result to the stack
+4. Remember when you pop operand then it acts as  first one is second and secon one is first operand
+
+// ALgorithm to evaluation of Postfix Expression using stack 
+
+Begin
+     for each character in postfix expression
+     do
+       if operand is encontered, push it
+         onto.stack
+        else if operator is encountered
+          pop 2 elements
+          A -> top element
+          b -> Next to top element
+
+          result = B operator A
+          push result onto stack
+
+        return element of stack top
+End
+
+
 */
