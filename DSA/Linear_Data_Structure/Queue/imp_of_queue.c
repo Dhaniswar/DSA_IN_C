@@ -61,6 +61,14 @@ void dequeue(){
 
 void feek(){
 
+    if(front==-1 && rear==-1){
+        printf("Empty Queue!");
+    }
+
+    else{
+    printf("element of the queue is: %d",queue[front]);
+
+    }
 
 }
 
