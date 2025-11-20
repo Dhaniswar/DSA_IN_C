@@ -61,11 +61,22 @@ void dequeue(){
 
 void feek(){
 
+
 }
 
 
 void display() {
 
+    if(front==-1 && rear==-1){
+        printf("Empty Queue!");
+    }
+
+    else{
+        while(front!=rear){
+            printf("element of the queue is: %d",queue[rear]);
+            front++; 
+        }
+    }
     
 }
 
@@ -78,6 +89,8 @@ void main() {
 
     enqueue();
     dequeue();
-
+    display();
+    peek();
+    dequeue();
 
 }
