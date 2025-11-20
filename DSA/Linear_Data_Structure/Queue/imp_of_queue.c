@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*
 Implementation of Queue using static memory allocation(Array)
@@ -12,93 +13,99 @@ int queue[N];
 int front = -1;
 int rear = -1;
 
-
-void enqueue(){
+void enqueue()
+{
 
     int a;
     printf("Enter the number:\n");
     scanf("%d", &a);
 
-    if(rear>N-1){
+    if (rear == N - 1)
+    {
         printf("Overflow condition occurs!\n");
     }
-    
-    else if(rear!=-1 && front==-1){
 
-        front=rear=0;
-        queue[rear]=a;
+    else if (rear == -1 && front == -1)
+    {
 
+        front = rear = 0;
+        queue[rear] = a;
     }
 
-    else{
+    else
+    {
 
         rear++;
-        queue[rear]=a;
-
+        queue[rear] = a;
     }
-
 }
 
+void dequeue()
+{
 
-void dequeue(){
-
-    if(rear==-1 && front==-1){
+    if (rear == -1 && front == -1)
+    {
         printf("Underflow condition occurs!\n");
     }
 
-    else if(front==rear){
-        front=rear=-1;
+    else if (front == rear)
+    {
+        printf("the dequeue element is %d\n", queue[front]);
+        front = rear = -1;
     }
 
-    else{
-        printf("the dequeue element is %d", queue[front]);
+    else
+    {
+        printf("the dequeue element is %d\n", queue[front]);
         front++;
     }
-
 }
 
+void peek()
+{
 
-
-void feek(){
-
-    if(front==-1 && rear==-1){
-        printf("Empty Queue!");
+    if (front == -1 && rear == -1)
+    {
+        printf("Empty Queue!\n");
     }
 
-    else{
-    printf("element of the queue is: %d",queue[front]);
-
+    else
+    {
+        printf("element of the queue is: %d\n", queue[front]);
     }
-
 }
 
-
-void display() {
-
-    if(front==-1 && rear==-1){
-        printf("Empty Queue!");
+void display()
+{
+    int i;
+    if (front == -1 && rear == -1)
+    {
+        printf("Empty Queue!\n");
     }
 
-    else{
-        while(front!=rear){
-            printf("element of the queue is: %d",queue[rear]);
-            front++; 
+    else
+    {
+        i=front;
+        while (i <= rear)
+        {
+            printf("elements of the queue is: %d\n", queue[i]);
+            i++;
         }
     }
-    
 }
 
+int main()
+{
 
-
-
-
-
-void main() {
     int choice;
-    printf("Enter the number choice(1: enqueue(), 2:dequeue(), 3:display(), 4:peek())\n");
-    scanf("%d",&choice);
 
-    switch(choice){
+    do
+    {
+        printf("Enter the choice(1: enqueue(), 2:dequeue(), 3:display(), 4:peek())\n");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
 
         case 1:
             enqueue();
@@ -114,8 +121,9 @@ void main() {
             break;
         default:
             printf("Pleae enter the valid choice\n");
-            break;
+        }
 
-    }
+    } while (choice != 0);
 
+    return 0;
 }
