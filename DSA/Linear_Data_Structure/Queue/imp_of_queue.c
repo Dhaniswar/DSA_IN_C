@@ -20,7 +20,7 @@ void enqueue(){
     scanf("%d", &a);
 
     if(rear>N-1){
-        printf("Overflow condition occurs!");
+        printf("Overflow condition occurs!\n");
     }
     
     else if(rear!=-1 && front==-1){
@@ -42,7 +42,21 @@ void enqueue(){
 
 void dequeue(){
 
+    if(rear==-1 && front==-1){
+        printf("Underflow condition occurs!\n");
+    }
+
+    else if(front==rear){
+        front=rear=-1;
+    }
+
+    else{
+        printf("the dequeue element is %d", queue[front]);
+        front++;
+    }
+
 }
+
 
 
 void feek(){
@@ -51,6 +65,7 @@ void feek(){
 
 
 void display() {
+
     
 }
 
@@ -60,5 +75,9 @@ void display() {
 
 
 void main() {
+
+    enqueue();
+    dequeue();
+
 
 }
