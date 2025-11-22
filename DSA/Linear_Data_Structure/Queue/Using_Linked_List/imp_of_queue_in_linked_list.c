@@ -59,6 +59,19 @@ void dequeue(struct queue **front, struct queue **rear){
     }
 }
 
+void peek(struct queue *front){
+
+    if(front==NULL){
+        printf("Empty Queue!\n");
+    }
+
+    else{
+        printf("very first node in the queue is data=%d, and next=%p\n", front->data, front->next);
+    }
+
+}
+
+
 
 
 
@@ -99,9 +112,9 @@ int main() {
         // case 3:
         //     display(front);
         //     break;
-        // case 4:
-        //     peek(front);
-        //     break;
+        case 4:
+            peek(front);
+            break;
 
         default:
             printf("Pleae enter the valid choice\n");
