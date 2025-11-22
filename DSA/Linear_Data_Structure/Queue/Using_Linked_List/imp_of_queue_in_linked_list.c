@@ -42,6 +42,24 @@ void enqueue(struct queue **front, struct queue **rear){
 
 
 
+void dequeue(struct queue **front, struct queue **rear){
+    
+    struct queue  *temp=NULL;
+
+
+    if(*front==NULL){
+        printf("Underflow condition occurs!\n");
+        *rear=NULL;
+    }
+
+    else{
+        temp=*front;
+        *front=(*front)->next;
+        free(temp);
+    }
+}
+
+
 
 
 void to_free(struct queue *front){
@@ -75,9 +93,9 @@ int main() {
         case 1:
             enqueue(&front, &rear);
             break;
-        // case 2:
-        //     dequeue(&front, &rear);
-        //     break;
+        case 2:
+            dequeue(&front, &rear);
+            break;
         // case 3:
         //     display(front);
         //     break;
