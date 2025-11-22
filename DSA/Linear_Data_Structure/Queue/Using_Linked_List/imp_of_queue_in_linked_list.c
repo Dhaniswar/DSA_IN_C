@@ -72,6 +72,24 @@ void peek(struct queue *front){
 }
 
 
+void display(struct queue *front){
+
+
+    struct queue * temp;
+
+    if(front==NULL){
+        printf("Empty Queue!\n");
+    }
+
+    else{
+        temp = front;
+        while(temp !=NULL){
+        printf("very first node in the queue is data=%d, and next=%p\n", temp->data, temp->next);
+        temp = temp->next;
+
+        }
+    }
+}
 
 
 
@@ -109,9 +127,9 @@ int main() {
         case 2:
             dequeue(&front, &rear);
             break;
-        // case 3:
-        //     display(front);
-        //     break;
+        case 3:
+            display(front);
+            break;
         case 4:
             peek(front);
             break;
