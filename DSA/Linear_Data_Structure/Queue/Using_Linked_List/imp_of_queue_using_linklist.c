@@ -68,6 +68,17 @@ void dequeue(){
 
 
 
+void peek(){
+
+    if(front==NULL){
+        printf("Empty Queue!\n");
+    }
+
+    else{
+        printf("front data=%d, and next=%p\n", front->data, front->next);
+    }
+
+}
 
 
 
@@ -103,6 +114,9 @@ int main() {
             break;
         case 2:
             dequeue();
+            break;
+        case 4:
+            peek();
             break;
         case 0:
             break;
