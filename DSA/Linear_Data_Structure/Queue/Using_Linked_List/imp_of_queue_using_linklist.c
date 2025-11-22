@@ -44,6 +44,29 @@ void enqueue(){
 
 
 
+void dequeue(){
+    
+    struct queue  *temp=NULL;
+
+
+    if(front==NULL){
+        printf("Underflow condition occurs!\n");
+        return;
+    }
+
+    else{
+        temp=front;
+        front=front->next;
+        printf("dequing element is data=%d, and next=%p \n", temp->data, temp->next);
+        free(temp);
+    }
+
+    if(front==NULL){
+        rear=NULL;
+    }
+}
+
+
 
 
 
@@ -77,6 +100,9 @@ int main() {
         switch (choice){
         case 1:
             enqueue();
+            break;
+        case 2:
+            dequeue();
             break;
         case 0:
             break;
