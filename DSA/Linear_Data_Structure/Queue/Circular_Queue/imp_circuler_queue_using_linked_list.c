@@ -80,7 +80,27 @@ void peek(){
 
 
 
+void display(){
+    struct queue *temp;
+    if(front==NULL && rear==NULL){
+        printf("Emplty Queue!\n");
+        return;
+    }
 
+    else{
+        temp=front;
+
+        do{
+        printf("elemnt in the queue is data=%d, and next=%p\n", temp->data, temp->next);
+        temp=temp->next;
+
+        }
+        while(temp != rear->next);
+
+        free(temp);
+
+    }
+}
 
 
 
@@ -88,7 +108,7 @@ int main(){
     int ch;
 
     do{
-    printf("Enter choice(1:enqueue(), 2:dequeue(), 3:peek(), 0:exit())\n");
+    printf("Enter choice(1:enqueue(), 2:dequeue(), 3:peek(), 4:display(), and 0:exit())\n");
     scanf("%d", &ch);
     switch(ch){
         case 1:
@@ -100,6 +120,8 @@ int main(){
         case 3:
             peek();
             break;
+        case 4:
+            display();
         case 0:
             break;
         default:
