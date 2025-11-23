@@ -97,9 +97,26 @@ void display(){
         }
         while(temp != rear->next);
 
-        free(temp);
-
     }
+}
+
+void free_queue(){
+    struct queue *temp;
+
+    if(front==NULL){
+        return;
+    }
+    
+    rear->next= NULL;
+
+    while(front !=NULL){
+        temp=front;
+        front=front->next;
+        free(temp);
+    }
+
+    rear= NULL;
+
 }
 
 
@@ -129,5 +146,7 @@ int main(){
     }
 
     }while(ch !=0);
+
+    free_queue();
     
 }
