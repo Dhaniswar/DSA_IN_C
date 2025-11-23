@@ -94,3 +94,37 @@ void display()
 
     }
 }
+
+int main()
+{
+
+    int choice;
+
+    do
+    {
+        printf("Enter the choice(1: enqueue(), 2:dequeue(), 3:display(), 4:peek())\n");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+
+        case 1:
+            enqueue();
+            break;
+        case 2:
+            dequeue();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            peek();
+            break;
+        default:
+            printf("Pleae enter the valid choice\n");
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}
