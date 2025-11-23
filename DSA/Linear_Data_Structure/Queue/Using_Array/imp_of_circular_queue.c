@@ -75,3 +75,22 @@ void peek()
     }
 }
 
+void display()
+{
+    int i=front;
+    if (front == -1 && rear == -1)
+    {
+        printf("Empty Queue!\n");
+    }
+
+    else
+    {
+        while (i!= rear)
+        {
+            printf("elements of the queue is: %d\n", queue[i]);
+            i=(i+1)%N;
+        }
+        printf("elements of the queue is: %d\n", queue[i]);
+
+    }
+}
