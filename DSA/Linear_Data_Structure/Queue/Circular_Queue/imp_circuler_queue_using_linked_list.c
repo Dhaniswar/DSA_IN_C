@@ -28,11 +28,11 @@ void enqueue(){
 
     if(front==NULL){
         front=rear=newnode;
-        rear->next=newnode;
+        rear->next=front;
     }
     else{
         rear->next= newnode;
-        newnode->next= rear;
+        newnode->next= front;
         rear = newnode;
     }
 
@@ -65,6 +65,20 @@ void dequeue(){
 }
 
 
+void peek(){
+
+    
+    if(front==NULL && rear==NULL){
+        printf("Empty Queue!\n");
+        return;
+    }
+
+    else{
+        printf("Front element of the queue is data=%d, and next=%p\n", front->data, front->next);
+    }
+}
+
+
 
 
 
@@ -74,7 +88,7 @@ int main(){
     int ch;
 
     do{
-    printf("Enter choice(1:enqueue(), 2:dequeue(), 0:exit())\n");
+    printf("Enter choice(1:enqueue(), 2:dequeue(), 3:peek(), 0:exit())\n");
     scanf("%d", &ch);
     switch(ch){
         case 1:
@@ -82,6 +96,9 @@ int main(){
             break;
         case 2:
             dequeue();
+            break;
+        case 3:
+            peek();
             break;
         case 0:
             break;
