@@ -47,7 +47,7 @@ void dequeue(){
         return;
     }
 
-    else if(front->next==rear->next){
+    else if(front==rear){
         printf("dequeuing elemnt from the queue is data=%d, and next=%p\n", front->data, front->next);
         front=rear=NULL;
     }
