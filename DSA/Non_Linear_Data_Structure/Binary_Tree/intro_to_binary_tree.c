@@ -259,4 +259,37 @@ e3).               A
 
 
 
-*/
+#Degenerate Binary Tree
+
+=> A binary tree in which all the internal nodes are having only one child 
+
+
+#Some examples of Degenerate Binary Tree
+
+e1).                A  (This is also known as left skewed binary tree)
+                  / 
+                 B 
+                /
+               C
+
+
+e2).                A    (This is also known as right skewed binary tree)
+                      \
+                       B 
+                        \
+                          C
+
+  
+e1).                A
+                  / 
+                 B 
+                /
+               C
+                \
+                  A
+                    \
+                      B 
+                        \
+                          C    
+
+  */
