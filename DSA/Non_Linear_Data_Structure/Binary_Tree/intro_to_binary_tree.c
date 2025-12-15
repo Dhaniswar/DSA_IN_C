@@ -56,7 +56,7 @@ n = 2^h+1 -1
 n+1 = 2^h+1
 log(n+1) = log(2^h+1)
 log(n+1) = h+1
-h = ⌈log(n+1) -1⌉ (it can be minimum  height)
+h = ⌈log(n+1)⌉ -1 (it can be minimum  height)
 
 Q). If there is n minimum node in the binary tree, find out the possible height?
 
@@ -108,6 +108,125 @@ eg,
 
  #Node 
 
+ Q). If there is n minimum node in the Full binary tree, find out the possible height?
+
+ n = 2h+1
+ n-1 = 2h
+ h = n-1/2
+
  1). no of leaf node = no .of internal nodes + 1 (this is the property of full binary tree)
+
+#Some properties of Full/Proper/Strict binary tree
+
+             ||             Max nodes               Min nodes
+ Binary tree ||             2^h+1 -1                   h+1
+=============||============================================================
+                 || 
+Full Binary Tree ||         2^h+1 -1                  2h+1
+=================||===========================================================
+
+
+#Some properties of Full/Proper/Strict binary tree
+             ||             Min height               Max height
+ Binary tree ||             ⌈log(n+1)⌉-1                n-1
+=============||============================================================
+                 || 
+Full Binary Tree ||         ⌈log(n+1)⌉-1                n-1/2
+=================||===========================================================
+
+
+
+
+
+#Complete Binary Tree
+
+=> A binary tree in which all the level are  completely filled (except possibly the last level) and the last level has nodes as left as possible
+
+Some examples of complete  binary tree
+
+e1).            A
+               / \
+              C   D
+
+
+e2).             A
+               /   \
+              C     D
+             / \   / \
+            E   F G   H
+
+
+
+e3).             A
+               /   \
+              C     D
+             / \   / \
+            E   F G   H
+           / \
+          I   J
+
+
+
+
+e4).             A
+               /   \
+              C     D
+             / \   / \
+            E   F G   H
+           /\  /
+          I  J K
+
+
+
+
+# below are the some examples of non complete binary tree
+
+e1).            A
+               / \
+              C   D
+               \ 
+                E
+
+
+e2).            A
+               / \
+              C   D
+                 / \
+                E
+          
+
+e4).             A
+               /   \
+              C     D
+             / \   / \
+            E   F G   H
+           /\  /\    / \ 
+          I  J K l   M  N
+
+
+
+#Some properties of Complete binary tree
+
+                               Max nodes               Min nodes
+                     || 
+Complete Binary Tree ||        2^h+1 -1                  2h+1
+=====================||===========================================================
+
+
+#Some properties of Complete binary tree
+                                Min height               Max height
+                     || 
+Complete Binary Tree ||         ⌈log(n+1)⌉-1                 log(n)
+=====================||===========================================================
+
+
+ Q). If there is n minimum node in the complete binary tree, find out the possible height?
+
+ n = 2^h
+ log(n) = log(2^h)
+ log(n) = h
+
+
+
 
 */
