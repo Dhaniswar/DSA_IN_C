@@ -228,5 +228,35 @@ Complete Binary Tree ||         ⌈log(n+1)⌉-1                 log(n)
 
 
 
+ #Perfect Binary Tree
+=> A binary tree in which all the internal nodes have 2 children and all the leaves are at same level
+=> So every Perfect binary tree can be Full binary tree and Complete binary tree
+
+
+#Some examples of Perfect binary tree
+
+
+e1).            A
+               / \
+              C   D
+
+
+e2).             A
+               /   \
+              C     D
+             / \   / \
+            E   F G   H
+
+
+
+e3).               A
+               /      \
+              C         D
+             / \        / \
+            E   F      G   H
+           /\  / \    / \  / \
+          I  J K  L  M  N  I  J
+
+
 
 */
