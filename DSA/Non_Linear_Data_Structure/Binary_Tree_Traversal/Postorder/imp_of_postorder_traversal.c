@@ -3,9 +3,9 @@
 
 
 /*
-#Inorder Traversal of BInary tree
+#Postorder Traversal of Binary tree
 
-Inorder => Root Left Right
+Inorder => Left Right Root
 
 
 
@@ -50,16 +50,17 @@ struct binary_tree *create(){
 
 }
 
-void preorder_traversal(struct binary_tree *root){
+void postorder_traversal(struct binary_tree *root){
 
     if(root==NULL){
-        return NULL;
+        return;
     }
     
     else{
+        postorder_traversal(root->left);
+        postorder_traversal(root->right);
         printf("Node: %d\n", root->data);
-        preorder_traversal(root->left);
-        preorder_traversal(root->right);
+
     }
 
 }
@@ -73,9 +74,9 @@ int main(){
 
     root = create();
 
-    printf("Preorder Traversal is: \n");
+    printf("Postorder Traversal is: \n");
 
-    preorder_traversal(root);
+    postorder_traversal(root);
 
 
 
