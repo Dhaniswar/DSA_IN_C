@@ -55,7 +55,7 @@ void main() {
 
     
     //if you print a + 1 = 112 (it will print the base address of next 1D array) or 
-    //if you print *(a + 1) = 112 (it will also print base address of nest 1D array)
+    //if you print *(a + 1) = 112 (it will also print base address of next 1D array)
     
 
     printf("It will print the first element of index 1 2D array is:%p \n", a[1]);
@@ -159,7 +159,7 @@ void main() {
     printf("Enter the elements of the 2D array: \n");
     for(i=0; i<3; i++) {
         for(j=0; j<3; j++) {
-            scanf("%d", (*(a+i)+j));
+            scanf("%d", (*(a+i)+j)); 
         }
     }
 
