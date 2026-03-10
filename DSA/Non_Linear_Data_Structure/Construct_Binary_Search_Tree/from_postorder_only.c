@@ -1,21 +1,20 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 /*
-#Construct a Binary Search Tree from Preorder only
 
-Preorder: 20, 16, 5, 18, 17, 19, 60, 85, 70 (Root, Left, Right)
+# Construct BST from given postorder: 5, 17, 19, 18, 16, 70, 85, 60, 20  (Left, Right, Root)
 
-Note: in case of Binary Search Tree, inorder is always in ascending order.
+There is different way to construct BST, but I will first calculate Inorder(IN BST Inorder is always in ascending order)
 
-Inorder: 5, 16, 17, 18, 19, 20, 60, 70, 85 (Left Root Right) => We evaluated "Inorder by ascending given "preorder"
+Inorder: 5, 16, 17, 18, 19, 20, 60, 70, 85 (Left, Root, Right)
+
 
 Now to construct BST, we need to follow these rules
 
-1. We can find Root of BST from Preorder, first element would be root
+1. We can find Root of BST from Postorder, first element would be root from end (Right to left)
 2. And we need to search that root from preorder in Post order (and from that root left elements would be left subtree and right elements would be right subtree)
-3. And again in that right and left-sub tree we need to find the rood (we use same rules no. 1, first element after previous root)
+3. And again in that right and left-sub tree we need to find the rood (we use same rules no. 1, first element after previous root( from the end))
 
 
                                 (20)
@@ -28,5 +27,10 @@ Now to construct BST, we need to follow these rules
 
 
 Note (18) = (17,18,19)
+
+
+
+
+
 
 */
